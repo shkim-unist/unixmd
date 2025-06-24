@@ -353,7 +353,7 @@ class MQC(object):
                 dynamics_info += f"  Nonadiabatic Couplings   = {'Yes':>16s}\n"
 
         # Print surface hopping variables
-        if (self.md_type in ["SH", "SHXF", "EhXF"]):
+        if (self.md_type in ["SH", "SHXF"]):
             dynamics_info += f"\n  Rescaling after Hop      = {self.hop_rescale:>16s}\n"
             dynamics_info += f"  Rescaling after Reject   = {self.hop_reject:>16s}\n"
 
