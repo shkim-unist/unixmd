@@ -353,7 +353,7 @@ class MQC(object):
                 dynamics_info += f"  Nonadiabatic Couplings   = {'Yes':>16s}\n"
 
         # Print surface hopping variables
-        if (self.md_type in ["SH", "SHXF"]):
+        if (self.md_type in ["SH", "SHXF", "EhXF"]):
             dynamics_info += f"\n  Rescaling after Hop      = {self.hop_rescale:>16s}\n"
             dynamics_info += f"  Rescaling after Reject   = {self.hop_reject:>16s}\n"
 
@@ -365,7 +365,7 @@ class MQC(object):
                     dynamics_info += f"  Energy Constant          = {self.edc_parameter:>16.6f}\n"
 
         # Print XF variables
-        if (self.md_type == "SHXF"):
+        if (self.md_type in ["SHXF", "EhXF"]):
             # Print density threshold used in decoherence term
             dynamics_info += f"\n  Density Threshold        = {self.rho_threshold:>16.6f}"
             # Print sigma values
@@ -444,7 +444,7 @@ class MQC(object):
             typewriter(tmp, unixmd_dir, "NACME", "w")
 
         # file header for SH-based methods
-        if (self.md_type in ["SH", "SHXF"]):
+        if (self.md_type in ["SH", "SHXF", "EhXF"]):
             tmp = f'{"#":5s}{"Step":8s}{"Running State":10s}'
             typewriter(tmp, unixmd_dir, "SHSTATE", "w")
 
